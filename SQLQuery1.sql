@@ -78,10 +78,16 @@ select * from Employee_Payroll;
 
 ------UC9-Extend table to have Basic Pay, Deductions, Taxable Pay, Income Tax, Net Pay------
 exec sp_rename 'Employee_Payroll.Salary','Basic_pay','column';
-alter table Employee_Payroll add 
-Deductions float not null default 0.00,
-Taxable_Pay float not null default 0.00, 
-Income_Tax float not null default 0.00,
-Net_Pay float not null default 0.00;
+alter table Employee_Payroll add Deductions float, Taxable_Pay float ,Net_pay float ,Income_Tax float
+update Employee_Payroll set Deductions = 100, Taxable_Pay = 1000, Income_Tax = (0.12)*Basic_pay where name = 'Gitesh';
+
+update Employee_Payroll set Deductions = 100, Taxable_Pay = 1000, Income_Tax = (0.14)*Basic_pay where name = 'Ashish';
+
+update Employee_Payroll set Deductions = 100, Taxable_Pay = 1000, Income_Tax = (0.15)*Basic_pay where name = 'Vikram';
+
+update Employee_Payroll set Deductions = 100, Taxable_Pay = 1000, Income_Tax = (0.14)*Basic_pay where name = 'Pooja';
+
+update Employee_Payroll set Deductions = 100, Taxable_Pay = 1000, Income_Tax = (0.16)*Basic_pay where name = 'Archana';
+
 update Employee_Payroll set Net_Pay = (Basic_Pay-Deductions-Taxable_Pay-Income_Tax);
 select * from Employee_Payroll;
