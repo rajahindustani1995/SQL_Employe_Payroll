@@ -23,3 +23,9 @@ VALUES ('Gitesh', 38000,'2010-05-08'),
 --------UC4-Retrieve all the Data from the Table---------
 select * from Employee_Payroll;
 select Id,Name from Employee_Payroll;
+
+ -------UC5-Retrieve Sallary and Date ------------
+select Salary from employee_payroll where Name='Vikram' or Id='3';
+--------Retrieve records based on date range-------
+select * from Employee_Payroll where StartDate between cast ('2019-01-01' as date) and GETDATE();
+
