@@ -75,3 +75,13 @@ set Phone = 9874114536, Address = 'Bangaluru'
 where name = 'Archana';
 
 select * from Employee_Payroll;
+
+------UC9-Extend table to have Basic Pay, Deductions, Taxable Pay, Income Tax, Net Pay------
+exec sp_rename 'Employee_Payroll.Salary','Basic_pay','column';
+alter table Employee_Payroll add 
+Deductions float not null default 0.00,
+Taxable_Pay float not null default 0.00, 
+Income_Tax float not null default 0.00,
+Net_Pay float not null default 0.00;
+update Employee_Payroll set Net_Pay = (Basic_Pay-Deductions-Taxable_Pay-Income_Tax);
+select * from Employee_Payroll;
