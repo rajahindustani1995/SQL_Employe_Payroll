@@ -29,3 +29,8 @@ select Salary from employee_payroll where Name='Vikram' or Id='3';
 --------Retrieve records based on date range-------
 select * from Employee_Payroll where StartDate between cast ('2019-01-01' as date) and GETDATE();
 
+--------UC6-Add gender Table in Employee_Payroll 
+alter table Employee_Payroll add Gender char(1);
+update Employee_Payroll set Gender = 'M' where Id in (1,2,3);
+update Employee_Payroll set Gender = 'F' where Id in (4,5);
+select * from Employee_Payroll;
