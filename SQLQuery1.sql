@@ -24,7 +24,7 @@ VALUES ('Gitesh', 38000,'2010-05-08'),
 select * from Employee_Payroll;
 select Id,Name from Employee_Payroll;
 
- -------UC5-Retrieve Sallary and Date ------------
+ -------UC5-Retrieve Salary and Date ------------
 select Salary from employee_payroll where Name='Vikram' or Id='3';
 --------Retrieve records based on date range-------
 select * from Employee_Payroll where StartDate between cast ('2019-01-01' as date) and GETDATE();
@@ -34,3 +34,15 @@ alter table Employee_Payroll add Gender char(1);
 update Employee_Payroll set Gender = 'M' where Id in (1,2,3);
 update Employee_Payroll set Gender = 'F' where Id in (4,5);
 select * from Employee_Payroll;
+
+---------UC7-Find sum, average, min, max of salary and number of male and female of employees-------
+
+select Gender, sum(Salary) as "Sum_Salary" from Employee_Payroll group by Gender;
+
+select Gender, avg(Salary) as "Average_Salary" from Employee_Payroll group by Gender;
+
+select Gender, min(Salary) as "Lowest_Salary" from Employee_Payroll group by Gender;
+
+select Gender, max(Salary) as "Highest_Salary" from Employee_Payroll group by Gender;
+
+select Gender, count(*) as "Count" from Employee_Payroll group by Gender;
