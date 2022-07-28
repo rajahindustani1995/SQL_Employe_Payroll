@@ -95,4 +95,4 @@ select * from Employee_Payroll;
 --------UC10-One employee works in two different departments --------
 insert into Employee_Payroll (Name, Basic_Pay, StartDate, Gender, Phone, Address, Department, Deductions, Taxable_Pay, Income_Tax,Net_Pay)
 values ('Vikram', 50000, '2020-07-09', 'M', 9875913329, 'Bangalore', 'IT',100.00, 1000.00, 7500.00,00.00);
-update employee_payroll set Net_Pay = (Basic_Pay-Deductions-Taxable_Pay-Income_Tax); 
+update employee_payroll set Net_Pay = (Basic_Pay-Deductions-Taxable_Pay-Income_Tax);
